@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>缘分匹配 - 濮阳同城交友网</title>
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        .filter-box {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            margin: 40px 0;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+        }
+        .filter-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .filter-item label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        .filter-item select, .filter-item input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
+        .search-match {
+            width: 100%;
+            padding: 12px;
+            background: var(--main);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        @media(max-width:768px){
+            .filter-row {
+                grid-template-columns: repeat(2,1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container nav-wrap">
+        <a href="index.html" class="logo">濮阳交友</a>
+        <ul class="nav-list">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="match.html" class="active">缘分匹配</a></li>
+            <li><a href="square.html">动态广场</a></li>
+            <li><a href="activity.html">线下活动</a></li>
+            <li><a href="user.html">个人中心</a></li>
+        </ul>
+        <a href="login.html" class="login-btn">登录/注册</a>
+    </div>
+</header>
+
+<div class="container">
+    <div class="section-title">
+        <h2>智能缘分匹配</h2>
+        <p style="margin-top:10px;color:#777;">筛选濮阳同城符合你择偶标准的好友</p>
+    </div>
+
+    <!-- 筛选条件区域 -->
+    <div class="filter-box">
+        <div class="filter-row">
+            <div class="filter-item">
+                <label>所在区域</label>
+                <select id="matchArea">
+                    <option value="all">全部区域</option>
+                    <option value="华龙区">华龙区</option>
+                    <option value="濮阳县">濮阳县</option>
+                    <option value="清丰县">清丰县</option>
+                    <option value="南乐县">南乐县</option>
+                    <option value="台前县">台前县</option>
+                    <option value="范县">范县</option>
+                </select>
+            </div>
+            <div class="filter-item">
+                <label>性别</label>
+                <select id="matchSex">
+                    <option value="all">不限</option>
+                    <option value="女">女生</option>
+                    <option value="男">男生</option>
+                </select>
+            </div>
+            <div class="filter-item">
+                <label>最小年龄</label>
+                <input type="number" id="minAge" value="20" min="18" max="45">
+            </div>
+            <div class="filter-item">
+                <label>最大年龄</label>
+                <input type="number" id="maxAge" value="35" min="18" max="45">
+            </div>
+        </div>
+        <div class="filter-row">
+            <div class="filter-item">
+                <label>爱好偏好</label>
+                <select id="matchHobby">
+                    <option value="all">全部爱好</option>
+                    <option value="探店">美食探店</option>
+                    <option value="爬山">户外爬山</option>
+                    <option value="剧本杀">剧本杀桌游</option>
+                    <option value="拍照">摄影拍照</option>
+                    <option value="健身">运动健身</option>
+                </select>
+            </div>
+            <div class="filter-item">
+                <label>最低身高</label>
+                <input type="number" id="minHeight" value="155" min="150" max="190">
+            </div>
+            <div class="filter-item">
+                <label>最高身高</label>
+                <input type="number" id="maxHeight" value="188" min="150" max="190">
+            </div>
+            <div class="filter-item">
+                <label>交友目的</label>
+                <select id="matchType">
+                    <option value="all">不限</option>
+                    <option value="friend">普通结伴交友</option>
+                    <option value="love">恋爱相亲脱单</option>
+                </select>
+            </div>
+        </div>
+        <button class="search-match" onclick="filterMatch()">开始匹配缘分</button>
+    </div>
+
+    <!-- 匹配结果区域 -->
+    <h3 style="margin-bottom:20px;">匹配结果</h3>
+    <div class="user-row" id="matchWrap"></div>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="foot-row">
+            <div class="foot-col">
+                <h3>濮阳交友网</h3>
+                <p>专注濮阳本地青年相亲、结伴、线下聚会，真实同城交友平台</p>
+            </div>
+            <div class="foot-col">
+                <h3>快速导航</h3>
+                <p><a href="match.html">缘分匹配</a></p>
+                <p><a href="square.html">动态广场</a></p>
+                <p><a href="activity.html">线下活动</a></p>
+            </div>
+            <div class="foot-col">
+                <h3>联系我们</h3>
+                <p>客服微信：puyangfriend</p>
+                <p>服务时间：9:00-22:00</p>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2026 濮阳同城交友网 仅前端演示，无实际线上服务
+        </div>
+    </div>
+</footer>
+
+<script src="js/app.js"></script>
+<script>
+// 匹配筛选函数
+function filterMatch(){
+    const area = document.getElementById("matchArea").value;
+    const minAge = Number(document.getElementById("minAge").value);
+    const maxAge = Number(document.getElementById("maxAge").value);
+    const minH = Number(document.getElementById("minHeight").value);
+    const maxH = Number(document.getElementById("maxHeight").value);
+    let filterList = UserList.filter(item=>{
+        let areaOk = area === "all" || item.area === area;
+        let ageOk = item.age >= minAge && item.age <= maxAge;
+        let heightNum = Number(item.height);
+        let heightOk = heightNum >= minH && heightNum <= maxH;
+        return areaOk && ageOk && heightOk;
+    })
+    const wrap = document.getElementById("matchWrap");
+    if(filterList.length === 0){
+        wrap.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:60px;background:#fff;border-radius:12px;">暂无匹配用户，更换筛选条件试试</div>`;
+        return;
+    }
+    let html = "";
+    filterList.forEach(u=>{
+        html += `
+        <div class="user-card">
+            <img src="${u.img}" class="user-img">
+            <div class="user-info">
+                <div class="user-name">
+                    ${u.name} <span class="user-tag">${u.age}岁/${u.height}cm</span>
+                </div>
+                <p class="user-desc">爱好：${u.hobby}</p>
+                <p class="user-area">📍 ${u.area}</p>
+                <button class="card-btn" onclick="goChat(${u.id})">私信打招呼</button>
+            </div>
+        </div>
+        `
+    })
+    wrap.innerHTML = html;
+}
+// 页面默认加载全部用户
+window.onload = function(){
+    renderUser();
+}
+</script>
+</body>
+</html>
