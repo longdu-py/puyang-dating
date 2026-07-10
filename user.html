@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人中心 - 濮阳同城交友网</title>
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        .user-top-box {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            padding:40px 0;
+            color:#fff;
+            text-align:center;
+            border-radius:12px;
+            margin:40px 0;
+        }
+        .self-avatar {
+            width: 120px;
+            height:120px;
+            border-radius:50%;
+            border:4px solid #fff;
+            object-fit:cover;
+            margin-bottom:15px;
+        }
+        .tab-row {
+            display: flex;
+            gap:0;
+            background:#fff;
+            border-radius:12px 12px 0 0;
+            overflow:hidden;
+        }
+        .tab-item {
+            flex:1;
+            text-align:center;
+            padding:15px;
+            cursor:pointer;
+        }
+        .tab-item.active {
+            background:var(--main);
+            color:#fff;
+        }
+        .tab-content {
+            background:#fff;
+            padding:30px;
+            border-radius:0 0 12px 12px;
+            margin-bottom:40px;
+        }
+        .hidden-tab {
+            display:none;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container nav-wrap">
+        <a href="index.html" class="logo">濮阳交友</a>
+        <ul class="nav-list">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="match.html">缘分匹配</a></li>
+            <li><a href="square.html">动态广场</a></li>
+            <li><a href="activity.html">线下活动</a></li>
+            <li><a href="user.html" class="active">个人中心</a></li>
+        </ul>
+        <a href="login.html" class="login-btn">登录/注册</a>
+    </div>
+</header>
+
+<div class="container">
+    <!-- 个人头部信息 -->
+    <div class="user-top-box">
+        <img src="https://picsum.photos/id/64/120/120" class="self-avatar">
+        <h2 id="selfName">未登录用户</h2>
+        <p id="selfArea">濮阳本地 | 完善资料提升匹配成功率</p>
+    </div>
+
+    <!-- 切换标签 -->
+    <div class="tab-row">
+        <div class="tab-item active" onclick="switchTab('info')">个人资料</div>
+        <div class="tab-item" onclick="switchTab('like')">我的心动</div>
+        <div class="tab-item" onclick="switchTab('joinAct')">我的活动</div>
+        <div class="tab-item" onclick="switchTab('setting')">账号设置</div>
+    </div>
+
+    <!-- 1 个人资料面板 -->
+    <div class="tab-content" id="tab-info">
+        <h3 style="margin-bottom:25px;">完善个人交友资料</h3>
+        <div class="form-item">
+            <label>昵称</label>
+            <input type="text" id="editName" placeholder="输入你的交友昵称">
+        </div>
+        <div class="form-item">
+            <label>年龄</label>
+            <input type="number" id="editAge" min="18" max="50" placeholder="你的年龄">
+        </div>
+        <div class="form-item">
+            <label>身高</label>
+            <input type="number" id="editHeight" min="150" max="195" placeholder="身高cm">
+        </div>
+        <div class="form-item">
+            <label>所在区域</label>
+            <select id="editArea">
+                <option value="">请选择濮阳区域</option>
+                <option value="华龙区">华龙区</option>
+                <option value="濮阳县">濮阳县</option>
+                <option value="清丰县">清丰县</option>
+                <option value="南乐县">南乐县</option>
+                <option value="台前县">台前县</option>
+                <option value="范县">范县</option>
+            </select>
+        </div>
+        <div class="form-item">
+            <label>兴趣爱好</label>
+            <input type="text" id="editHobby" placeholder="例：露营、探店、剧本杀、健身">
+        </div>
+        <div class="form-item">
+            <label>自我介绍</label>
+            <textarea id="editDesc" rows="3" placeholder="简单介绍自己，更容易匹配到同好"></textarea>
+        </div>
+        <button class="submit-btn" style="width:auto;padding:10px 30px;margin-top:10px;" onclick="saveUserInfo()">保存资料</button>
+    </div>
+
+    <!-- 2 我的心动面板 -->
+    <div class="tab-content hidden-tab" id="tab-like">
+        <h3 style="margin-bottom:25px;">我心动过的用户</h3>
+        <div class="user-row">
+            <div class="user-card">
+                <img src="https://picsum.photos/id/91/240/240" class="user-img">
+                <div class="user-info">
+                    <div class="user-name">阿泽 <span class="user-tag">26岁/178cm</span></div>
+                    <p class="user-desc">爱好：爬山、篮球</p>
+                    <p class="user-area">📍 濮阳县</p>
+                    <button class="card-btn" onclick="goChat(2)">发起私信</button>
+                </div>
+            </div>
+            <div class="user-card">
+                <img src="https://picsum.photos/id/1027/240/240" class="user-img">
+                <div class="user-info">
+                    <div class="user-name">月月 <span class="user-tag">23岁/160cm</span></div>
+                    <p class="user-desc">爱好：拍照、露营</p>
+                    <p class="user-area">📍 清丰县</p>
+                    <button class="card-btn" onclick="goChat(3)">发起私信</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3 我的活动面板 -->
+    <div class="tab-content hidden-tab" id="tab-joinAct">
+        <h3 style="margin-bottom:25px;">我报名的线下活动</h3>
+        <div style="background:#f8f8f8;padding:20px;border-radius:10px;margin-bottom:15px;">
+            <h4>龙湖湿地公园周末露营交友局</h4>
+            <p>时间：07月18日 周六 14:00</p>
+            <p>地点：龙湖湿地公园大草坪</p>
+        </div>
+        <div style="background:#f8f8f8;padding:20px;border-radius:10px;">
+            <h4>万达剧本杀相亲专场</h4>
+            <p>时间：07月19日 周日 19:00</p>
+            <p>地点：华龙区万达金街剧本馆</p>
+        </div>
+    </div>
+
+    <!-- 4 账号设置面板 -->
+    <div class="tab-content hidden-tab" id="tab-setting">
+        <h3 style="margin-bottom:25px;">账号安全设置</h3>
+        <div class="form-item">
+            <label>绑定手机号</label>
+            <input type="tel" placeholder="当前登录手机号" disabled>
+        </div>
+        <div class="form-item">
+            <label>修改登录密码</label>
+            <input type="password" placeholder="输入新密码">
+        </div>
+        <div style="margin-top:30px;">
+            <button class="submit-btn" style="background:#999;width:auto;padding:10px 25px;">退出登录</button>
+            <button class="submit-btn" style="background:#c93030;width:auto;padding:10px 25px;margin-left:15px;">注销账号</button>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="foot-row">
+            <div class="foot-col">
+                <h3>濮阳交友网</h3>
+                <p>专注濮阳本地青年相亲、结伴、线下聚会，真实同城交友平台</p>
+            </div>
+            <div class="foot-col">
+                <h3>快速导航</h3>
+                <p><a href="match.html">缘分匹配</a></p>
+                <p><a href="square.html">动态广场</a></p>
+                <p><a href="activity.html">线下活动</a></p>
+            </div>
+            <div class="foot-col">
+                <h3>联系我们</h3>
+                <p>客服微信：puyangfriend</p>
+                <p>服务时间：9:00-22:00</p>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2026 濮阳同城交友网 仅前端演示，无实际线上服务
+        </div>
+    </div>
+</footer>
+
+<script src="js/app.js"></script>
+<script>
+// 标签切换函数
+function switchTab(tabName){
+    // 切换tab高亮
+    const tabs = document.querySelectorAll(".tab-item");
+    tabs.forEach(t=>t.classList.remove("active"));
+    event.target.classList.add("active");
+    // 隐藏所有内容
+    document.getElementById("tab-info").classList.add("hidden-tab");
+    document.getElementById("tab-like").classList.add("hidden-tab");
+    document.getElementById("tab-joinAct").classList.add("hidden-tab");
+    document.getElementById("tab-setting").classList.add("hidden-tab");
+    // 显示对应面板
+    document.getElementById(`tab-${tabName}`).classList.remove("hidden-tab");
+}
+// 保存个人资料
+function saveUserInfo(){
+    let name = document.getElementById("editName").value;
+    let age = document.getElementById("editAge").value;
+    let height = document.getElementById("editHeight").value;
+    let area = document.getElementById("editArea").value;
+    let hobby = document.getElementById("editHobby").value;
+    let desc = document.getElementById("editDesc").value;
+    if(!name || !age || !height || !area){
+        alert("昵称、年龄、身高、区域为必填项");
+        return;
+    }
+    alert("个人资料保存成功！");
+    document.getElementById("selfName").innerText = name;
+    document.getElementById("selfArea").innerText = area + " | " + hobby;
+}
+// 读取本地登录用户信息
+window.onload = function(){
+    renderUser();
+    let localUser = Store.get("localUser");
+    if(localUser){
+        document.getElementById("selfName").innerText = localUser.name;
+        document.getElementById("selfArea").innerText = localUser.area + " 本地交友用户";
+    }
+}
+</script>
+</body>
+</html>
