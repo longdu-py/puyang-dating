@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>动态广场 - 濮阳同城交友网</title>
+    <link rel="stylesheet" href="css/main.css">
+    <style>
+        .publish-box {
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 40px 0;
+        }
+        .dynamic-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .dynamic-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom:15px;
+        }
+        .avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .dynamic-img {
+            width: 100%;
+            border-radius: 8px;
+            margin:12px 0;
+        }
+        .dynamic-op {
+            display: flex;
+            gap: 30px;
+            margin-top:15px;
+            color:#777;
+        }
+        .op-item {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container nav-wrap">
+        <a href="index.html" class="logo">濮阳交友</a>
+        <ul class="nav-list">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="match.html">缘分匹配</a></li>
+            <li><a href="square.html" class="active">动态广场</a></li>
+            <li><a href="activity.html">线下活动</a></li>
+            <li><a href="user.html">个人中心</a></li>
+        </ul>
+        <a href="login.html" class="login-btn">登录/注册</a>
+    </div>
+</header>
+
+<div class="container">
+    <div class="section-title">
+        <h2>同城动态广场</h2>
+        <p style="margin-top:10px;color:#777;">濮阳小伙伴日常分享生活、探店、心情</p>
+    </div>
+
+    <!-- 发布动态 -->
+    <div class="publishing-box">
+        <h4 style="margin-bottom:15px;">发布我的动态</h4>
+        <textarea id="dynContent" rows="4" placeholder="分享你的濮阳日常，寻找同好..." style="width:100%;padding:12px;border:1px solid #ddd;border-radius:8px;resize:none;"></textarea>
+        <button class="submit-btn" style="margin-top:15px;width:auto;padding:10px 25px;" onclick="publishDyn()">发布动态</button>
+    </div>
+
+    <!-- 动态列表 -->
+    <div id="dynWrap">
+        <!-- 动态1 -->
+        <div class="dynamic-card">
+            <div class="dynamic-header">
+                <img src="https://picsum.photos/id/64/50/50" class="avatar">
+                <div>
+                    <h4>小冉 | 华龙区</h4>
+                    <span style="color:#999;font-size:13px;">2小时前</span>
+                </div>
+            </div>
+            <p>龙湖湿地公园日落超好看！有没有濮阳小伙伴周末一起散步拍照～</p>
+            <img src="https://picsum.photos/id/1036/600/300" class="dynamic-img">
+            <div class="dynamic-op">
+                <div class="op-item">❤️ 28</div>
+                <div class="op-item">💬 12条评论</div>
+                <div class="op-item">↗ 分享</div>
+            </div>
+        </div>
+        <!-- 动态2 -->
+        <div class="dynamic-card">
+            <div class="dynamic-header">
+                <img src="https://picsum.photos/id/91/50/50" class="avatar">
+                <div>
+                    <h4>阿泽 | 濮阳县</h4>
+                    <span style="color:#999;font-size:13px;">昨天 18:20</span>
+                </div>
+            </div>
+            <p>万达新开的剧本杀店组队，缺2个搭子，男生女生都可以！</p>
+            <div class="dynamic-op">
+                <div class="op-item">❤️ 16</div>
+                <div class="op-item">💬 24条评论</div>
+                <div class="op-item">↗ 分享</div>
+            </div>
+        </div>
+        <!-- 动态3 -->
+        <div class="dynamic-card">
+            <div class="dynamic-header">
+                <img src="https://picsum.photos/id/1027/50/50" class="avatar">
+                <div>
+                    <h4>月月 | 清丰县</h4>
+                    <span style="color:#999;font-size:13px;">3天前</span>
+                </div>
+            </div>
+            <p>老城这家老式烩面巨香，濮阳本地老味道，推荐给大家！</p>
+            <img src="https://picsum.photos/id/1080/600/300" class="dynamic-img">
+            <div class="dynamic-op">
+                <div class="op-item">❤️ 42</div>
+                <div class="op-item">💬 31条评论</div>
+                <div class="op-item">↗ 分享</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="foot-row">
+            <div class="foot-col">
+                <h3>濮阳交友网</h3>
+                <p>专注濮阳本地青年相亲、结伴、线下聚会，真实同城交友平台</p>
+            </div>
+            <div class="foot-col">
+                <h3>快速导航</h3>
+                <p><a href="match.html">缘分匹配</a></p>
+                <p><a href="square.html">动态广场</a></p>
+                <p><a href="activity.html">线下活动</a></p>
+            </div>
+            <div class="foot-col">
+                <h3>联系我们</h3>
+                <p>客服微信：puyangfriend</p>
+                <p>服务时间：9:00-22:00</p>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2026 濮阳同城交友网 仅前端演示，无实际线上服务
+        </div>
+    </div>
+</footer>
+
+<script src="js/app.js"></script>
+<script>
+function publishingDyn(){
+    let content = document.getElementById("dynContent").value.trim();
+    if(!content){
+        alert("请输入动态内容");
+        return;
+    }
+    alert("动态发布成功，刷新页面即可展示");
+    document.getElementById("dynContent").value = "";
+}
+</script>
+</body>
+</html>
