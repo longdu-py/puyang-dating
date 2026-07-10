@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>线下活动 - 濮阳同城交友网</title>
+    <style>
+        .act-full-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            display: grid;
+            grid-template-columns: 400px 1fr;
+        }
+        .act-big-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .act-detail {
+            padding: 30px;
+        }
+        .act-tag {
+            display: inline-block;
+            background: var(--light-pink);
+            color: var(--main);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size:14px;
+            margin-right:10px;
+        }
+        .act-desc {
+            margin:20px 0;
+            line-height:1.8;
+            color:#555;
+        }
+        .act-info-row {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap:15px;
+            margin:20px 0;
+        }
+        .info-item {
+            background: #f8f8f8;
+            padding:12px;
+            border-radius:8px;
+        }
+        @media(max-width:768px){
+            .act-full-card {
+                grid-template-columns: 1fr;
+            }
+            .act-info-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="container nav-wrap">
+        <a href="index.html" class="logo">濮阳交友</a>
+        <ul class="nav-list">
+            <li><a href="index.html">首页</a></li>
+            <li><a href="match.html">缘分匹配</a></li>
+            <li><a href="square.html">动态广场</a></li>
+            <li><a href="activity.html" class="active">线下活动</a></li>
+            <li><a href="user.html">个人中心</a></li>
+        </ul>
+        <a href="login.html" class="login-btn">登录/注册</a>
+    </div>
+</header>
+
+<div class="container">
+    <div class="section-title">
+        <h2>濮阳线下交友活动</h2>
+        <p style="margin-top:10px;color:#777;">真实线下见面，告别线上尬聊，本地青年专属聚会</p>
+    </div>
+
+    <!-- 活动1 -->
+    <div class="act-full-card">
+        <img src="https://picsum.photos/id/1036/400/320" class="act-big-img">
+        <div class="act-detail">
+            <h3>龙湖湿地公园周末露营交友局</h3>
+            <div style="margin:10px 0;">
+                <span class="act-tag">户外露营</span>
+                <span class="act-tag">男女均衡</span>
+                <span class="act-tag">免费参加</span>
+            </div>
+            <div class="act-info-row">
+                <div class="info-item">⏰ 活动时间：07月18日 周六 14:00-19:00</div>
+                <div class="info-item">📍 活动地点：龙湖湿地公园大草坪</div>
+                <div class="info-item">👥 招募人数：男生15人 / 女生15人</div>
+            </div>
+            <div class="act-desc">
+                濮阳本地青年露营交友，提供零食饮料、桌游卡牌、拍照道具，自由聊天、野餐、湖边散步，无强制互动，轻松结识同城小伙伴。适合喜欢户外、拍照、休闲交友的朋友。
+            </div>
+            <button class="submit-btn" style="width:auto;padding:10px 30px;">立即报名占位</button>
+        </div>
+    </div>
+
+    <!-- 活动2 -->
+    <div class="act-full-card">
+        <img src="https://picsum.photos/id/1060/400/320" class="act-big-img">
+        <div class="act-detail">
+            <h3>万达剧本杀相亲专场</h3>
+            <div style="margin:10px 0;">
+                <span class="act-tag">相亲脱单</span>
+                <span class="act-tag">室内桌游</span>
+                <span class="act-tag">人均35元</span>
+            </div>
+            <div class="act-info-row">
+                <div class="info-item">⏰ 活动时间：07月19日 周日 19:00-22:30</div>
+                <div class="info-item">📍 活动地点：华龙区万达金街剧本馆</div>
+                <div class="info-item">👥 招募人数：男生10人 / 女生10人</div>
+            </div>
+            <div class="act-desc">
+                专为单身青年打造剧本杀相亲局，选择情感欢乐本，组队搭配男女玩家，游戏过程自然互动，结束自由交换联系方式，适合想认真脱单的濮阳小伙伴。
+            </div>
+            <button class="submit-btn" style="width:auto;padding:10px 30px;">立即报名占位</button>
+        </div>
+    </div>
+
+    <!-- 活动3 -->
+    <div class="act-full-card">
+        <img src="https://picsum.photos/id/1080/400/320" class="act-big-img">
+        <div class="act-detail">
+            <h3>老城特色美食青年聚餐</h3>
+            <div style="margin:10px 0;">
+                <span class="act-tag">美食探店</span>
+                <span class="act-tag">轻松结伴</span>
+                <span class="act-tag">AA制聚餐</span>
+            </div>
+            <div class="act-info-row">
+                <div class="info-item">⏰ 活动时间：07月20日 周一 18:30-21:00</div>
+                <div class="info-item">📍 活动地点：老城老式烩面特色菜馆</div>
+                <div class="info-item">👥 招募人数：不限，最多20人</div>
+            </div>
+            <div class="act-desc">
+                爱吃美食的濮阳年轻人线下聚餐，打卡本地老字号特色菜，边吃饭边聊天，无相亲压力，单纯寻找美食搭子、同城玩伴。
+            </div>
+            <button class="submit-btn" style="width:auto;padding:10px 30px;">立即报名占位</button>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="foot-row">
+            <div class="foot-col">
+                <h3>濮阳交友网</h3>
+                <p>专注濮阳本地青年相亲、结伴、线下聚会，真实同城交友平台</p>
+            </div>
+            <div class="foot-col">
+                <h3>快速导航</h3>
+                <p><a href="match.html">缘分匹配</a></p>
+                <p><a href="square.html">动态广场</a></p>
+                <p><a href="activity.html">线下活动</a></p>
+            </div>
+            <div class="foot-col">
+                <h3>联系我们</h3>
+                <p>客服微信：puyangfriend</p>
+                <p>服务时间：9:00-22:00</p>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2026 濮阳同城交友网 仅前端演示，无实际线上服务
+        </div>
+    </div>
+</footer>
+
+<script src="js/app.js"></script>
+<script>
+    document.querySelectorAll(".submit-btn").forEach(btn=>{
+        btn.onclick = function(){
+            alert("报名提交成功，活动前会弹窗提醒你！");
+        }
+    })
+</script>
+</body>
+</html>
